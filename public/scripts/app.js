@@ -1,4 +1,4 @@
-console.log('App.js is running!');
+console.log('App.js is running, and this is cool!');
 
 // var template = <p>This is JSX from app.js!</p>;
 var template = React.createElement(
