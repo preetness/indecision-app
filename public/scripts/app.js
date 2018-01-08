@@ -5,8 +5,7 @@ console.log('App.js is running!');
 var appTitles = {
   title: 'Indecision App',
   subTitle: 'What do you want to do?',
-  optionOne: 'Take a shower',
-  optionTwo: 'Go back to sleep'
+  options: ['Take a shower', 'Do nothing', 'Watch a movie']
 };
 
 var template = React.createElement(
@@ -17,23 +16,33 @@ var template = React.createElement(
     null,
     appTitles.title
   ),
-  React.createElement(
+  appTitles.subTitle && React.createElement(
     'p',
     null,
     appTitles.subTitle
   ),
   React.createElement(
-    'ol',
+    'p',
     null,
+    appTitles.options.length > 0 ? 'Here are your options:' : 'No options.',
     React.createElement(
-      'li',
+      'ol',
       null,
-      appTitles.optionOne
-    ),
-    React.createElement(
-      'li',
-      null,
-      appTitles.optionTwo
+      React.createElement(
+        'li',
+        null,
+        appTitles.options[0]
+      ),
+      React.createElement(
+        'li',
+        null,
+        appTitles.options[1]
+      ),
+      React.createElement(
+        'li',
+        null,
+        appTitles.options[2]
+      )
     )
   )
 );
@@ -45,9 +54,12 @@ var user = {
 
 function getLocation(location) {
   if (location) {
-    return location;
-  } else {
-    return 'Unknown';
+    return React.createElement(
+      'p',
+      null,
+      'Location: ',
+      location
+    );
   }
 }
 
@@ -57,21 +69,16 @@ var templateTwo = React.createElement(
   React.createElement(
     'h1',
     null,
-    user.name.toUpperCase()
+    user.name ? user.name.toUpperCase() : 'Anonymous'
   ),
-  React.createElement(
+  user.age && user.age >= 18 && React.createElement(
     'p',
     null,
     'Age: ',
     user.age
   ),
-  React.createElement(
-    'p',
-    null,
-    'Location: ',
-    getLocation(user.location)
-  )
+  getLocation(user.location)
 );
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
