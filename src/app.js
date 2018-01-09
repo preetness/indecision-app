@@ -1,43 +1,44 @@
 console.log('App.js is running!');
 
-var appTitles = {
+const appTitles = {
   title: 'Indecision App',
   subTitle: 'What do you want to do?',
-  optionOne: 'Take a shower',
-  optionTwo: 'Go back to sleep'
+  options: ['Take a shower', 'Do nothing', 'Watch a movie']
 };
 
-var template = (
+const template = (
   <div>
     <h1>{appTitles.title}</h1>
-    <p>{appTitles.subTitle}</p>
-    <ol>
-      <li>{appTitles.optionOne}</li>
-      <li>{appTitles.optionTwo}</li>      
-    </ol>
+    {appTitles.subTitle && <p>{appTitles.subTitle}</p>}
+    <p>{appTitles.options.length > 0 ? 'Here are your options:' : 'No options.'}
+      <ol>
+        <li>{appTitles.options[0]}</li>
+        <li>{appTitles.options[1]}</li> 
+        <li>{appTitles.options[2]}</li>      
+      </ol>
+    </p>
+
   </div>
 );
-var user = {
-  name: 'Preet Dha',
+const user = {
+  name: 'Preet Dha', 
   age: 40,
-  location: 'Seattle'
+  location: 'Seattle'  
 };
 
 function getLocation(location) {
   if (location) {
-    return location;
-  } else {
-    return 'Unknown';
+    return <p>Location: {location}</p>;
   }
 }
 
-var templateTwo = (
+const templateTwo = (
   <div>
-    <h1>{user.name.toUpperCase()}</h1>
-    <p>Age: {user.age}</p>
-    <p>Location: {getLocation(user.location)}</p>
+    <h1>{user.name? user.name.toUpperCase() : 'Anonymous'}</h1>
+    {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
+    {getLocation(user.location)}
   </div>
 )
-var appRoot = document.getElementById('app');
+const appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot); 
+ReactDOM.render(template, appRoot); 
