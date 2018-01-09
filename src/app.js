@@ -19,26 +19,30 @@ const template = (
     </p>
 
   </div>
-);
-const user = {
-  name: 'Preet Dha', 
-  age: 40,
-  location: 'Seattle'  
-};
+)
 
-function getLocation(location) {
-  if (location) {
-    return <p>Location: {location}</p>;
-  }
-}
+let count = 0;
 
-const templateTwo = (
+const addOne = () => {console.log('clicked');}
+const minusOne = () => {console.log('minusOne');}
+const reset = () => {console.log('reset');}
+
+// const templateTwo = (
+//   <div>
+//     <h1>Count: {count}</h1>
+//     <button onClick={addOne}>+1</button>
+//   </div>
+// );
+
+const templateThree = (
   <div>
-    <h1>{user.name? user.name.toUpperCase() : 'Anonymous'}</h1>
-    {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
-    {getLocation(user.location)}
+    <h1>Count: {count}</h1>
+      <button onClick={addOne}>+1</button>    
+      <button onClick={minusOne}>-1</button>
+      <button onClick={reset}>reset</button>      
   </div>
 )
+
 const appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot); 
+ReactDOM.render(templateThree, appRoot); 
