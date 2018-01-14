@@ -33,9 +33,11 @@ const renderFormApp = () => {
       <p>{appTitles.options.length > 0 ? 'Here are your options:' : 'No options.'}
       <p>{appTitles.options.length}</p>
         <ol>
-          <li>{appTitles.options[0]}</li>
-          <li>{appTitles.options[1]}</li> 
-          <li>{appTitles.options[2]}</li>      
+          {
+            appTitles.options.map((option) => {
+              return <li key="{option}">{option}</li>;
+            })
+          }      
         </ol>
       </p>
       <form onSubmit={onFormSubmit}>
