@@ -23,6 +23,12 @@ const removeOptions = () => {
   renderFormApp();
 };
 
+const onMakeDecision = () => {
+  const randomNumber = Math.floor(Math.random() * appTitles.options.length);
+  const pickOption = appTitles.options[randomNumber];
+  console.log(pickOption);
+};
+
 const appRoot = document.getElementById('app');
 
 const renderFormApp = () => {
@@ -31,7 +37,6 @@ const renderFormApp = () => {
       <h1>{appTitles.title}</h1>
       {appTitles.subTitle && <p>{appTitles.subTitle}</p>}
       <p>{appTitles.options.length > 0 ? 'Here are your options:' : 'No options.'}
-      <p>{appTitles.options.length}</p>
         <ol>
           {
             appTitles.options.map((option) => {
@@ -40,6 +45,7 @@ const renderFormApp = () => {
           }      
         </ol>
       </p>
+      <button disabled={appTitles.options.length === 0} onClick={onMakeDecision}>What Should I Do?</button>
       <form onSubmit={onFormSubmit}>
         <input type="text" name="option"/>
         <button>Add Option</button>
