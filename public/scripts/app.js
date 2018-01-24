@@ -1,5 +1,12 @@
 'use strict';
 
+var visibility = false;
+
+var toggleHandler = function toggleHandler() {
+    visibility = !visibility;
+    renderBuildItApp();
+};
+
 var appRoot = document.getElementById('app');
 
 var renderBuildItApp = function renderBuildItApp() {
@@ -13,8 +20,17 @@ var renderBuildItApp = function renderBuildItApp() {
         ),
         React.createElement(
             'button',
+            { onClick: toggleHandler },
+            visibility ? 'Hide Details' : 'Show Details'
+        ),
+        visibility && React.createElement(
+            'div',
             null,
-            'Show Details'
+            React.createElement(
+                'p',
+                null,
+                'Hey. These are some details you can now see.'
+            )
         )
     );
     ReactDOM.render(template, appRoot);
