@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import AddOption from './components/AddOption';
 import Option from './components/Option';
 import Action from './components/Action';
+import Header from './components/Header';
 
 class IndecisionApp extends React.Component {
     
@@ -93,19 +94,6 @@ class IndecisionApp extends React.Component {
       }
     }
     
-    const Header = (props) => {
-      return(
-        <div>
-          <h1>{props.title}</h1>
-          {props.subtitle && <h2>{props.subtitle}</h2>}
-        </div>
-      );
-    }
-    
-    Header.defaultProps = {
-      title: 'INDECISION'
-    }
-    
     const Options = (props) => {
       return (
         <div>
@@ -123,14 +111,5 @@ class IndecisionApp extends React.Component {
         </div>
       );
     }
-    
-    const User = () => {
-      return (
-        <div>
-          <p>Name: </p>
-          <p>Age: </p>
-        </div>
-      )
-    };
     
     ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
