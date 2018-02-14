@@ -973,6 +973,10 @@ var _AddOption = __webpack_require__(32);
 
 var _AddOption2 = _interopRequireDefault(_AddOption);
 
+var _Option = __webpack_require__(33);
+
+var _Option2 = _interopRequireDefault(_Option);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1144,29 +1148,12 @@ var Options = function Options(props) {
       'Please add an option to get started!'
     ),
     props.options.map(function (option) {
-      return _react2.default.createElement(Option, {
+      return _react2.default.createElement(_Option2.default, {
         key: option,
         optionText: option,
         handleDeleteOneOption: props.handleDeleteOneOption
       });
     })
-  );
-};
-
-var Option = function Option(props) {
-  return _react2.default.createElement(
-    'div',
-    null,
-    props.optionText,
-    _react2.default.createElement(
-      'button',
-      {
-        onClick: function onClick(e) {
-          props.handleDeleteOneOption(props.optionText);
-        }
-      },
-      'Remove'
-    )
   );
 };
 
@@ -21473,6 +21460,42 @@ var AddOption = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = AddOption;
+
+/***/ }),
+/* 33 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(6);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Option = function Option(props) {
+  return _react2.default.createElement(
+    'div',
+    null,
+    props.optionText,
+    _react2.default.createElement(
+      'button',
+      {
+        onClick: function onClick(e) {
+          props.handleDeleteOneOption(props.optionText);
+        }
+      },
+      'Remove'
+    )
+  );
+};
+
+exports.default = Option;
 
 /***/ })
 /******/ ]);
