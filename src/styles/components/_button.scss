@@ -7,13 +7,19 @@
     color: white;
     font-weight: bold;
     font-size: $large-size;
-    margin-bottom: $x-large-size;
+    margin-bottom: $medium-size;
     padding: 2.4rem;
     width: 100%;
 }
 
 .big-button:disabled {
     opacity: .3;
+}
+
+@media (min-width: $desktop-breakpoint) {
+    .big-button {
+        margin-bottom: $x-large-size;
+    }
 }
 
 // Regular Button
